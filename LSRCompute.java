@@ -136,7 +136,7 @@ class LSRCompute {
 
         try{
             // Get line number from the file
-            LineNumberReader lnr = new LineNumberReader(new FileReader(new File("routes.lsa")));
+            LineNumberReader lnr = new LineNumberReader(new FileReader(args[0]));
             lnr.skip(Long.MAX_VALUE);
             totalNodes = lnr.getLineNumber();
             lnr.close();
@@ -169,7 +169,7 @@ class LSRCompute {
 
                 // split by spaces and store in infoOfEachLine
                 String[] infoOfEachLine = strLine.split("\\s+");
-                //System.out.println(Arrays.toString(infoOfEachLine));
+                System.out.println(Arrays.toString(infoOfEachLine));
 
                 // Add corresponding cost metrics to graph[][]
                 for(int j = 0; j < infoOfEachLine.length; j++) {
@@ -180,7 +180,9 @@ class LSRCompute {
                         char ch = s.charAt(i);
                         n = (int) ch - (int) 'A';
                     }
-                    graph[x][n] = Integer.parseInt(String.valueOf(infoOfEachLine[j].charAt(2)));
+                    String substring = infoOfEachLine[j].substring(infoOfEachLine[j].indexOf(":") + 1); // Remove node identifier before the cost
+                    //System.out.println(substring);
+                    graph[x][n] = Integer.parseInt(substring);
                 }
                 x++;
 
