@@ -1,4 +1,6 @@
 # Link State Routing
 This project aims to develop a Java program that emulates the process done by routers exercising the link state routing (LSR) protocol. 
+
 The LSR protocol dictates the interactions between routers in terms of exchanging link state advertisements (LSAs). The flooding technique adopted by the LSR protocol ensures that up-to-date state information is propagated to all the routers within a routing area. Importantly, these information are collected by individual routers and used as the primarily source of state information to compute the shortest path based on the Dijkstra’s algorithm. The combination of LSA packets provides adequate information for each router to take a snap-shot of the network topology and compute the shortest paths to all other routers based on the Dijkstra’s algorithm. The router computing the shortest path is known as the source router or the root node, from which a tree path represents the shortest paths to all other nodes. 
+
 In this project, each group is required to write a Java program that processes LSA packets and computes the shortest paths from the source router to all other nodes. There are several basic requirements that are mandatory in this project, while others are optional. The next section describes the design requirements and specifications of the project.
